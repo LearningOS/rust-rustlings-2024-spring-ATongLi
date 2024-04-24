@@ -7,12 +7,15 @@
 // Execute `rustlings hint move_semantics2` or use the `hint` watch subcommand
 // for a hint.
 
-// I AM NOT DONE
 
 fn main() {
-    let vec0 = Vec::new();
-
+    let mut vec0 = Vec::new();
+    // 所有权转移
+    // 直接赋值会转移所有权, 因为fill_vec参数为转移所有权
+    // 转移所有权后仍在使用
     let mut vec1 = fill_vec(vec0);
+    // 覆盖命名,并从vec1.clone()
+    vec0 = vec1.clone();
 
     println!("{} has length {}, with contents: `{:?}`", "vec0", vec0.len(), vec0);
 
